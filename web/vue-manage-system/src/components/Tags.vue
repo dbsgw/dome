@@ -1,4 +1,5 @@
 <template>
+<!--  tags写的 上面轮回小条-->
     <div class="tags" v-if="tags.show">
         <ul>
             <li class="tags-li" v-for="(item,index) in tags.list" :class="{'active': isActive(item.path)}" :key="index">
@@ -27,35 +28,50 @@
 
 <script>
 import { useTagsStore } from '../store/tags'
+// useRouter 传值的    useRoute 接收值的  onBeforeRouteUpdate组件复用是起作用
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
 export default {
     setup() {
+      // 跳转 传值
         const route = useRoute();
+        // 接收 跳转 传值
         const router = useRouter();
+        // 如果 等于当前 路径 就激活当前选项
         const isActive = (path) => {
             return path === route.fullPath;
         };
 
+        // tags 管理
         const tags = useTagsStore();
         // 关闭单个标签
         const closeTags = (index) => {
+          // 存储了  当前 标签
             const delItem = tags.list[index];
+            // 删除标签
             tags.delTagsItem(index);
             const item = tags.list[index] ? tags.list[index] : tags.list[index - 1];
+            // 如果 当前标签存在值 就说明还有标签
             if (item) {
+              // 删除的这个标签链接 和 当前 路径相同  就跳转到 下一个路径
                 delItem.path === route.fullPath && router.push(item.path);
             } else {
+              // 没有标签了  直接跳转到 首页
                 router.push("/");
             }
         };
 
         // 设置标签
         const setTags = (route) => {
+
+          // 判断  pania中是否有 当前页面的
             const isExist = tags.list.some((item) => {
                 return item.path === route.fullPath;
             });
+            // pania中没有才存储
             if (!isExist) {
+              // 标签长度大于8 删除第一个标签
                 if (tags.list.length >= 8) tags.delTagsItem(0);
+                // 设置标签
                 tags.setTagsItem({
                     name: route.name,
                     title: route.meta.title,
@@ -63,7 +79,9 @@ export default {
                 });
             }
         };
+        // 进来先将  当前路由设置一下
         setTags(route);
+        // 组件再次打开 时候  在设置一下
         onBeforeRouteUpdate((to) => {
             setTags(to);
         });
@@ -75,11 +93,14 @@ export default {
         };
         // 关闭其他标签
         const closeOther = () => {
+          // 找出当前的 路由的 item
             const curItem = tags.list.filter((item) => {
                 return item.path === route.fullPath;
             });
+            // 设置当前 路由
             tags.closeTagsOther(curItem);
         };
+        // 选中， other 是 关闭其他，不是就关闭所有
         const handleTags = (command) => {
             command === "other" ? closeOther() : closeAll();
         };

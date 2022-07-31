@@ -1,3 +1,4 @@
+// 请求
 import axios from 'axios';
 
 const service = axios.create({
@@ -6,7 +7,7 @@ const service = axios.create({
     // baseURL: 'https://www.easy-mock.com/mock/592501a391470c0ac1fab128',
     timeout: 5000
 });
-
+// 请求拦截
 service.interceptors.request.use(
     config => {
         return config;
@@ -16,7 +17,7 @@ service.interceptors.request.use(
         return Promise.reject();
     }
 );
-
+// 响应拦截
 service.interceptors.response.use(
     response => {
         if (response.status === 200) {

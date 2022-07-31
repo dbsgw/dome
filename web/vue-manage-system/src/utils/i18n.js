@@ -1,3 +1,4 @@
+// i18n的简单目录 语言结构
 export default {
     'zh-cn': {
         i18n: {

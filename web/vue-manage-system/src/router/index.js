@@ -1,4 +1,5 @@
 import {createRouter, createWebHashHistory} from "vue-router";
+// 做了  缓存 过度 类似 一个模板页面
 import Home from "../views/Home.vue";
 
 const routes = [
@@ -127,15 +128,18 @@ const routes = [
         component: () => import ( /* webpackChunkName: "login" */ "../views/Login.vue")
     }
 ];
-
+// 创建 路由  hash 模式
 const router = createRouter({
     history: createWebHashHistory(),
     routes
 });
-
+// 路由跳转前
 router.beforeEach((to, from, next) => {
+    // 设置当前的网页 title
     document.title = `${to.meta.title} | vue-manage-system`;
+    // 获取当前的名称
     const role = localStorage.getItem('ms_username');
+    // 名称不存在 且 访问的 路径不是  /login  就跳转到 login
     if (!role && to.path !== '/login') {
         next('/login');
     } else if (to.meta.permission) {

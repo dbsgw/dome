@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-
+// tags 标签控制的
 export const useTagsStore = defineStore('tags', {
     state: () => {
         return {
@@ -7,23 +7,28 @@ export const useTagsStore = defineStore('tags', {
         }
     },
     getters: {
+        // 判断 list的 胀肚
         show: (state) => {
             return state.list.length > 0;
         },
+        // 返回所以的name
         nameList: (state) => {
             return state.list.map(item => item.name);
         }
     },
     actions: {
+        // 删除标签
         delTagsItem(index) {
             this.list.splice(index, 1);
         },
         setTagsItem(data) {
             this.list.push(data)
         },
+        // 关闭 全部标签
         clearTags() {
             this.list = []
         },
+        // 关闭 其他标签
         closeTagsOther(data) {
             this.list = data;
         },
