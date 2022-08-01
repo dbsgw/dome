@@ -70,6 +70,7 @@
 </template>
 
 <script>
+// 一个基础表单清晰明了
 import { reactive, ref } from "vue";
 import { ElMessage } from "element-plus";
 export default {

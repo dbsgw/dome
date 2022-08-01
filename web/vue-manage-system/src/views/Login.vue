@@ -35,12 +35,16 @@ import { ElMessage } from "element-plus";
 
 export default {
     setup() {
+      // 跳转路由
         const router = useRouter();
+        // 账户和密码
         const param = reactive({
             username: "admin",
             password: "123123",
         });
 
+
+        // 规则
         const rules = {
             username: [
                 {
@@ -54,6 +58,8 @@ export default {
             ],
         };
         const login = ref(null);
+
+        // 登录
         const submitForm = () => {
             login.value.validate((valid) => {
                 if (valid) {
@@ -67,6 +73,7 @@ export default {
             });
         };
 
+        // 关闭了所有标签页
         const tags = useTagsStore();
         tags.clearTags();
 

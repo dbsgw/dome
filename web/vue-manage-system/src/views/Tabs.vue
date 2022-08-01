@@ -71,6 +71,7 @@
 </template>
 
 <script>
+// table 页面
 import { ref, reactive } from "vue";
 export default {
     name: "tabs",

@@ -12,6 +12,7 @@
 </template>
 
 <script>
+// 跳转到上一页
 import { useRouter } from "vue-router";
 export default {
     name: "404",

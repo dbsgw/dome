@@ -25,6 +25,7 @@
 </template>
 
 <script>
+// 多语言页面
 export default {
     name: "i18n"
 };

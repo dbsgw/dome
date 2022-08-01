@@ -17,6 +17,7 @@
 </template>
 
 <script>
+// 就一个简单的支持页面
 export default {
     name: "donate"
 };

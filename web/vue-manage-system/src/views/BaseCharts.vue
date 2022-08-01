@@ -34,6 +34,7 @@
 </template>
 
 <script>
+// sChart.js：一个小型简单的图表库。基于 HTML5 canvas 实现，无任何依赖，并且兼容移动端。
 import Schart from "vue-schart";
 export default {
     name: "basecharts",
@@ -41,6 +42,7 @@ export default {
         Schart,
     },
     setup() {
+        // 图标数据
         const options1 = {
             type: "bar",
             title: {

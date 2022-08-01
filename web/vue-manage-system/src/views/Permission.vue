@@ -19,6 +19,7 @@
 </template>
 
 <script>
+// 假页面
 export default {
     name: "permission"
 };

@@ -115,13 +115,16 @@
 </template>
 
 <script>
+// 图表
 import Schart from "vue-schart";
 import { reactive } from "vue";
 export default {
     name: "dashboard",
     components: { Schart },
     setup() {
+      // 获取本地缓存
         const name = localStorage.getItem("ms_username");
+        // 判断 用户名称
         const role = name === "admin" ? "超级管理员" : "普通用户";
 
         const data = reactive([

@@ -81,7 +81,7 @@
 import { ref, reactive } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { fetchData } from "../api/index";
-
+// 感觉变量定义挺多的  可以用 reactive 定义一下
 export default {
     name: "basetable",
     setup() {

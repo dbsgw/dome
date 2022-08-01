@@ -21,6 +21,7 @@
 </template>
 
 <script>
+// 富文本编辑器
 import WangEditor from "wangeditor";
 import { ref, reactive, onMounted, onBeforeUnmount } from "vue";
 export default {
@@ -32,11 +33,13 @@ export default {
             text: "",
         });
         let instance;
+        // dom 挂载完毕
         onMounted(() => {
             instance = new WangEditor(editor.value);
             instance.config.zIndex = 1;
             instance.create();
         });
+        // dom 即将更新时候
         onBeforeUnmount(() => {
             instance.destroy();
             instance = null;

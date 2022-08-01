@@ -12,11 +12,13 @@
 </template>
 
 <script>
+// useRouter 是接收跳转的router
 import { useRouter } from "vue-router";
 export default {
     name: "404",
     setup() {
         const router = useRouter();
+        // 跳转到上一页
         const goBack = () => {
             router.go(-1);
         };

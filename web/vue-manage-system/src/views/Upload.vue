@@ -38,6 +38,7 @@
 
 <script>
 import { ref } from "vue";
+// 支持图片裁剪的
 import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
 import defaultSrc from "../assets/img/img.jpg";
@@ -54,18 +55,22 @@ export default {
 
         const setImage = (e) => {
             const file = e.target.files[0];
+            // 判读类型 是否是图片
             if (!file.type.includes("image/")) {
                 return;
             }
+            // 读取文件  返回流
             const reader = new FileReader();
             reader.onload = (event) => {
                 dialogVisible.value = true;
                 imgSrc.value = event.target.result;
                 cropper.value && cropper.value.replace(event.target.result);
             };
+            // 成DataURL
             reader.readAsDataURL(file);
         };
 
+        // 方法都是  插件内部的
         const cropImage = () => {
             cropImg.value = cropper.value.getCroppedCanvas().toDataURL();
         };

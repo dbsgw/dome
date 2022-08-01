@@ -63,6 +63,7 @@
 
 <script>
 import { reactive, ref } from "vue";
+// 裁剪图片 插件
 import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
 import avatar from "../assets/img/img.jpg";

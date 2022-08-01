@@ -18,6 +18,7 @@
     </div>
 </template>
 <script>
+// 就是一个  layout 页面
 import { useSidebarStore } from '../store/sidebar'
 import { useTagsStore } from '../store/tags'
 import vHeader from "../components/Header.vue";
