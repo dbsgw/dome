@@ -65,6 +65,8 @@ export async function frontEndsResetRoute() {
 export function setFilterRouteEnd() {
 	let filterRouteEnd: any = formatTwoStageRoutes(formatFlatteningRoutes(dynamicRoutes));
 	filterRouteEnd[0].children = [...setFilterRoute(filterRouteEnd[0].children), ...notFoundAndNoPower];
+	console.log(filterRouteEnd,"=========================");
+	
 	return filterRouteEnd;
 }
 
