@@ -1,6 +1,10 @@
 import request from '/@/utils/request';
 
 /**
+ * 普通的api文件
+ */
+
+/**
  * 登录api接口集合
  * @method signIn 用户登录
  * @method signOut 用户退出登录

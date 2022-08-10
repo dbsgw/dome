@@ -1,4 +1,7 @@
 // 定义内容
+/**
+ * 用户登录 英文
+ */
 export default {
 	label: {
 		one1: 'User name login',

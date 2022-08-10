@@ -1,5 +1,7 @@
 import Cookies from 'js-cookie';
 
+// localStorage和sessionStorage的封装同时  token带入到 cookies里面去
+
 /**
  * window.localStorage 浏览器永久缓存
  * @method set 设置永久缓存

@@ -1,14 +1,20 @@
 <template>
+<!--   如果是element的就用组件-->
 	<i v-if="isShowIconSvg" class="el-icon" :style="setIconSvgStyle">
 		<component :is="getIconName" />
 	</i>
+  <!--   如果是 在线和本地的链接  就用img-->
 	<div v-else-if="isShowIconImg" :style="setIconImgOutStyle">
 		<img :src="getIconName" :style="setIconSvgInsStyle" />
 	</div>
+<!--  其他都用字体图标-->
 	<i v-else :class="getIconName" :style="setIconSvgStyle" />
 </template>
 
 <script lang="ts">
+/**\
+ * 图标选择器
+ */
 import { computed, defineComponent } from 'vue';
 
 export default defineComponent({

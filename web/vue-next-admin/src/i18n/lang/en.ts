@@ -1,4 +1,7 @@
 // 定义内容
+/**
+ * 英文
+ */
 export default {
 	router: {
 		home: 'home',

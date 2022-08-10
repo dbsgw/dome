@@ -63,12 +63,26 @@
 </template>
 
 <script lang="ts">
+// 图标选择器
+
+// ref  获取ref的
+// toRefs 解构解析的 响应式 reactive的
+// reactive 创建对象的
+// onMounted 页面加载生命周期
+// nextTick  页面加载完成执行
+// computed  计算属性
+// watch 监听
+// defineComponent
 import { ref, toRefs, reactive, onMounted, nextTick, computed, watch, defineComponent } from 'vue';
+// 获取 css 类名 工具箱
 import initIconfont from '/@/utils/getStyleSheets';
 
 export default defineComponent({
+  // 名称
 	name: 'iconSelector',
+  // emit 子父传值
 	emits: ['update:modelValue', 'get', 'clear'],
+  // props
 	props: {
 		// 输入框前置内容
 		prepend: {
@@ -116,8 +130,10 @@ export default defineComponent({
 		modelValue: String,
 	},
 	setup(props, { emit }) {
+    // 获取ref
 		const inputWidthRef = ref();
 		const selectorScrollbarRef = ref();
+    // 数据初始化
 		const state = reactive({
 			fontIconPrefix: '',
 			fontIconWidth: 0,

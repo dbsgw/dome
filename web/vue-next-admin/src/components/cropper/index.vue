@@ -32,13 +32,22 @@
 </template>
 
 <script lang="ts">
+/**
+ * 图片剪切预览 组件
+ */
+// reactive 初始化对象,值的
+// toRefs  解构对象的,让其响应式
+// nextTick 确保页面加载玩 在执行
+// defineComponent 定义 setup的
 import { reactive, toRefs, nextTick, defineComponent } from 'vue';
+// 引入 剪切插件
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.css';
 
 export default defineComponent({
 	name: 'cropperIndex',
 	setup() {
+    // 剪切数据
 		const state = reactive({
 			isShowDialog: false,
 			cropperImg: '',

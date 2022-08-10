@@ -1,4 +1,7 @@
 // 定义内容
+/**
+ * 中文
+ */
 export default {
 	router: {
 		home: '首页',

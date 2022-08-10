@@ -1,4 +1,5 @@
 // https://pinia.vuejs.org/
+// pinia 实例
 import { createPinia } from 'pinia';
 
 // 创建

@@ -22,6 +22,7 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
 		optimizeDeps: {
 			include: ['element-plus/lib/locale/lang/zh-cn', 'element-plus/lib/locale/lang/en', 'element-plus/lib/locale/lang/zh-tw'],
 		},
+		// 接口代理的
 		server: {
 			host: '0.0.0.0',
 			port: env.VITE_PORT as unknown as number,
@@ -35,9 +36,13 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
 				},
 			},
 		},
+		// 打包配置用的
 		build: {
+			// 输出的文件夹
 			outDir: 'dist',
+			// 是否输出 map文件(map文件是方便错误定位的)
 			sourcemap: false,
+			// 限制打包的 包大小 为 1500k
 			chunkSizeWarningLimit: 1500,
 			rollupOptions: {
 				output: {

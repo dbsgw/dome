@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Author: 刘洋
+ * @Date: 2022-07-14 12:31:16
+ * @LastEditTime: 2022-08-07 00:11:19
+ * @LastEditors: xxx
+ */
 import type { App } from 'vue';
 import { useUserInfo } from '/@/stores/userInfo';
 import { judementSameArr } from '/@/utils/arrayOperation';
@@ -8,11 +15,14 @@ import { judementSameArr } from '/@/utils/arrayOperation';
  * @directive 多个权限验证，满足一个则显示（v-auths="[xxx,xxx]"）
  * @directive 多个权限验证，全部满足则显示（v-auth-all="[xxx,xxx]"）
  */
+import {useRoute,useRouter } from 'vue-router';
+
 export function authDirective(app: App) {
 	// 单个权限验证（v-auth="xxx"）
 	app.directive('auth', {
 		mounted(el, binding) {
 			const stores = useUserInfo();
+			console.log(stores.userInfos,"stores.userInfos.authBtnList",useRouter(),useRoute())
 			if (!stores.userInfos.authBtnList.some((v: string) => v === binding.value)) el.parentNode.removeChild(el);
 		},
 	});

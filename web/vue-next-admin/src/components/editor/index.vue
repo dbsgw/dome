@@ -6,9 +6,22 @@
 </template>
 
 <script lang="ts">
+/**
+ * 编辑器 页面
+ */
+// toRefs  解构对象的
+// reactive 初始化对象的
+// onMounted 页面加载完成生命周期
+// watch 监听
+// defineComponent 定义setup的
 import { toRefs, reactive, onMounted, watch, defineComponent } from 'vue';
+// 编辑器函数
+// createEditor  创建编辑器
+// createToolbar  创建表头配置项
 import { createEditor, createToolbar, IEditorConfig, IToolbarConfig, IDomEditor } from '@wangeditor/editor';
 import '@wangeditor/editor/dist/css/style.css';
+
+// toolbarKeys 配置 (编辑器表头配置)
 import { toolbarKeys } from './toolbar';
 
 // 定义接口来定义对象的类型
@@ -38,9 +51,11 @@ export default defineComponent({
 		},
 		// 双向绑定：双向绑定值，字段名为固定，改了之后将不生效
 		// 参考：https://v3.cn.vuejs.org/guide/migration/v-model.html#%E8%BF%81%E7%A7%BB%E7%AD%96%E7%95%A5
+    // modelValue 是默认数据双向绑定的
 		modelValue: String,
 		// https://www.wangeditor.com/v5/getting-started.html#mode-%E6%A8%A1%E5%BC%8F
 		// 模式，可选 <default|simple>，默认 default
+    // 模式配置  简洁版,默认版
 		mode: {
 			type: String,
 			default: () => 'default',
@@ -52,6 +67,7 @@ export default defineComponent({
 		},
 	},
 	setup(props, { emit }) {
+    // 初始化数据
 		const state = reactive<WangeditorState>({
 			editorToolbar: null,
 			editor: null,
@@ -94,12 +110,13 @@ export default defineComponent({
 				config: toolbarConfig(),
 			});
 		};
-		// 页面加载时
+		// 页面加载时 初始化编辑器
 		onMounted(() => {
 			initWangeditor();
 		});
 		// 监听双向绑定值的改变
 		// https://gitee.com/lyt-top/vue-next-admin/issues/I4LM7I
+    // 监听双向数据绑定的 modelValue  变化了 就清空编辑器  重新赋值
 		watch(
 			() => props.modelValue,
 			(value) => {

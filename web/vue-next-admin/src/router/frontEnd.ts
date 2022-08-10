@@ -40,6 +40,8 @@ export async function initFrontEndControlRoutes() {
  */
 export async function setAddRoute() {
 	await setFilterRouteEnd().forEach((route: RouteRecordRaw) => {
+		console.log(route);
+		
 		router.addRoute(route);
 	});
 }

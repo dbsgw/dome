@@ -9,11 +9,17 @@ import { Session } from '/@/utils/storage';
  */
 export const useUserInfo = defineStore('userInfo', {
 	state: (): UserInfosStates => ({
+		// 用户信息
 		userInfos: {
+			// 昵称
 			userName: '',
+			// 图像
 			photo: '',
+			// 时间
 			time: 0,
+			// 权限标识
 			roles: [],
+			// 按钮权限
 			authBtnList: [],
 		},
 	}),

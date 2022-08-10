@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts">
+// 全局滚动条
 import { toRefs, reactive, defineComponent, ref, onMounted, nextTick } from 'vue';
 
 export default defineComponent({

@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: 刘洋
+ * @Date: 2022-08-08 18:06:12
+ * @LastEditTime: 2022-08-08 18:20:22
+ * @LastEditors: xxx
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div">
+
+    </div>
+    <style>
+        .div{
+            width: 50vw;
+            height: 50vw;
+            background-color: aqua;
+        }
+    </style>
+    <script>
+        
+
+        var a = {
+            a:11
+        }
+        var b = function name(params) {
+            console.log(111111);
+        }
+        var c = new Date().getTime
+        var d = new Date()
+        var patt = /runoob/i
+        var e = new RegExp(patt)
+        console.log(e,patt);
+
+
+
+        var obj = {
+            a,b,c,d,e
+        }
+
+        var objStr = JSON.parse(JSON.stringify(obj))
+        // var objStr = Object.assign({},obj)
+        obj.a = {name:111}
+        // objStr.b()
+        console.log(objStr,obj);
+
+    </script>
+</body>
+</html>
