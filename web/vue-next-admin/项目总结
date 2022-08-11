@@ -1,0 +1,2 @@
+1. 组件封装规范，在src/components/svgIcon/index.vue    里面的封装规范很好，全面
+2. 模板切换，在src/layout/index.vue   里面引入了defineAsyncComponent（异步加载组件），通过component的is属性动态切换组件模板， 还需要配合路由 router/route.ts 里面的dynamicRoutes路由组，的 path :‘/’ 以后所有路由全部写在 / 里面，且rouviews 是写在模板组件里面的，很精妙
