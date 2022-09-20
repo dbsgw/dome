@@ -98,6 +98,8 @@ export default defineComponent({
 			state.routeSplit = path.split('/');
 			state.routeSplit.shift();
 			state.routeSplitFirst = `/${state.routeSplit[0]}`;
+			console.log(path,path.split('/'),state.routeSplitFirst);
+			
 			state.routeSplitIndex = 1;
 			getBreadcrumbList(routesList.value);
 			if (route.name === 'home' || (route.name === 'notFound' && state.breadcrumbList.length > 1)) state.breadcrumbList.shift();

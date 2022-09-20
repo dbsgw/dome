@@ -147,6 +147,16 @@ export default defineComponent({
           deep: true,
         }
     );
+    watch(
+      ()=>state.i18nLocale,
+      ()=>{
+        console.log(state.i18nLocale)
+        
+      },
+      {
+        deep:true,
+      }
+    )
     return {
       // 皮肤配置
       themeConfig,
